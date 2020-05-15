@@ -1,0 +1,23 @@
+var swapPairs = function(head) {
+  if (head === null) return null;
+  
+  var prev = null,
+    p1 = head,
+    p2 = p1.next;
+  
+  while (p2) {
+    if (prev === null) {
+      head = p2;
+    } else {
+      prev.next = p2;
+    }
+    p1.next = p2.next;
+    p2.next = p1;
+    prev = p1;
+    
+    p1 = p1.next;
+    p2 = p1 === null ? null : p1.next;
+  }
+  
+  return head;
+};
