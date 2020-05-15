@@ -1,0 +1,12 @@
+var maxDepth = function(root) {
+    return countNodes(root, 0);
+};
+
+function countNodes(node, n){
+    if (!node) return n;
+    
+    let left = countNodes(node.left, n+1);
+    let right = countNodes(node.right, n+1);
+    
+    return Math.max(left, right);
+}
